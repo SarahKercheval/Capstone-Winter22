@@ -2,7 +2,7 @@
   "name": "find-that-show",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://sarahkercheval.github.io/find-that-show",
+  "homepage": "git@github.com:SarahKercheval/Capstone-Winter22.git",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
