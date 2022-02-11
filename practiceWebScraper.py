@@ -16,9 +16,7 @@ site = input("What site would you like to search?")
 siteURL = "https://www." + site + ".com/"
 
 show = input("What would you like to find?")
-search = show.replace(" ","")
-
-
+search = " ".join(show.split())
 
 def scrapeNetflix(siteURL):
 
@@ -29,27 +27,43 @@ def scrapeNetflix(siteURL):
     try:
         unavaliable = browser.find_element(By.XPATH,'//*[@id="appMountPoint"]/div/div/div[2]/h1')
     except NoSuchElementException:
-        print("Show was found")
-        yearReleased = browser.find_element(By.XPATH,'//*[@id="section-hero"]/div[1]/div[1]/div[2]/div/div[1]/span[1]')
-        maturityRating = browser.find_element(By.XPATH,'//*[@id="section-hero"]/div[1]/div[1]/div[2]/div/div[1]/span[3]/span/span')
-        numSeasons = browser.find_element(By.XPATH,'//*[@id="section-hero"]/div[1]/div[1]/div[2]/div/div[1]/span[5]/span/span')
-        genre = browser.find_element(By.XPATH,'//*[@id="section-hero"]/div[1]/div[1]/div[2]/div/div[1]/a')
-        synopsis = browser.find_element(By.XPATH,'//*[@id="section-hero"]/div[1]/div[1]/div[2]/div/div[2]/div')
-        print(yearReleased.text)
-        print(maturityRating.text)
-        print(numSeasons.text)
-        print(genre.text)
-        print(synopsis.text)
-        # browser.close()
+        
+        try:
+            print("Show was found")
+            yearReleased = browser.find_element(By.XPATH,'//*[@id="section-hero"]/div[1]/div[1]/div[2]/div/div[1]/span[1]')
+            maturityRating = browser.find_element(By.XPATH,'//*[@id="section-hero"]/div[1]/div[1]/div[2]/div/div[1]/span[3]/span/span')
+            numSeasons = browser.find_element(By.XPATH,'//*[@id="section-hero"]/div[1]/div[1]/div[2]/div/div[1]/span[5]/span/span')
+            genre = browser.find_element(By.XPATH,'//*[@id="section-hero"]/div[1]/div[1]/div[2]/div/div[1]/a')
+            synopsis = browser.find_element(By.XPATH,'//*[@id="section-hero"]/div[1]/div[1]/div[2]/div/div[2]/div')
+            print(yearReleased.text)
+            print(maturityRating.text)
+            print(numSeasons.text)
+            print(genre.text)
+            print(synopsis.text)
+            # browser.close()
+        except NoSuchElementException:
+            print("multiple shows match criteria")
+            elementlist =  browser.find_elements(By.CLASS_NAME, 'nm-collections-title nm-collections-link')
+            print(elementlist)
+            
+            #browser.get(netflix + ".com/title/" + )
+            
+            
+            
+            
+            
+            
+                
     else:
         print("Show not found")
         # browser.close()
 
 def scrapeHulu(siteURL):
 
+    find = search.replace(" ","-")
     DRIVER_PATH = "C:\\Webdrivers\\chromedriver"
     browser = webdriver.Chrome(executable_path=DRIVER_PATH)
-    browser.get(siteURL + search)
+    browser.get(siteURL + find)
 
     try:
         unavaliable = browser.find_element(By.XPATH,'//*[@id="__next"]/div/p[2]')
@@ -74,7 +88,7 @@ if netflix in siteURL:
 elif hulu in siteURL:
     scrapeHulu(siteURL)
 else:
-    print("Site not recongized")
+   print("Site not recongized")
 
 
 
