@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.js": "/Capstone-Winter22/static/js/main.82469639.js",
+    "main.js": "/Capstone-Winter22/static/js/main.b5579b20.js",
     "static/js/787.a7075d95.chunk.js": "/Capstone-Winter22/static/js/787.a7075d95.chunk.js",
     "index.html": "/Capstone-Winter22/index.html",
-    "main.82469639.js.map": "/Capstone-Winter22/static/js/main.82469639.js.map",
+    "main.b5579b20.js.map": "/Capstone-Winter22/static/js/main.b5579b20.js.map",
     "787.a7075d95.chunk.js.map": "/Capstone-Winter22/static/js/787.a7075d95.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.82469639.js"
+    "static/js/main.b5579b20.js"
   ]
 }
