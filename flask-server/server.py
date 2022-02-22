@@ -9,9 +9,9 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return 'Home'
+    return 'home'
 
-@app.route("/Genre")
+@app.route("/genre")
 def genre():
     return 'Genre'
     
