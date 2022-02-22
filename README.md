@@ -7,7 +7,7 @@ make "Webdrivers" folder on C drive and place chromedriver in the folder
 
 "C:\Webdrivers\chromedriver"
 
-In order to run the flask server for development, move to the flask-server folder, run: 
+In order to run the flask server for development, move to the flask-server folder in terminal and run: 
 'source venv/bin/activate'
 'export FLASK_APP=server.py'
 'python -m flask run'
