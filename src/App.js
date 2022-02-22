@@ -1,12 +1,11 @@
 import React, { Component, useState, UseEffect, useEffect } from 'react'
-import SearchBar from './SearchBar'
-import Navbar from 'react-bootstrap/Navbar'
-import Nav from 'react-bootstrap/nav'
-import Container from 'react-bootstrap/Container'
-import 'bootstrap/dist/css/bootstrap.css';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Home from './pages/Home';
+import NavBar from './components/NavBar';
 import './index.css';
-
-//fetching from server.py flask 
+import SearchResult from './pages/SearchResult';
+import Movies from './pages/Movies';
+import 'bootstrap/dist/css/bootstrap.css';
 
 function App() {
 
@@ -23,24 +22,18 @@ function App() {
         )
     }, [])
 
-    return (
-        <div className="Home">
-        <Navbar bg="dark" variant="dark">
-            <Container>
-                <Navbar.Brand href="#home">MoviesSearch</Navbar.Brand>
-                <Nav className="ms-auto">
-                    <Nav.Link href="#home">Home</Nav.Link>
-                    <Nav.Link href="#Genres">Genres</Nav.Link>
-                    <Nav.Link href="#FAQ">FAQ</Nav.Link>
-                </Nav>
-            </Container>
-        </Navbar>
-        <div className="content">
-            <p id="Title">Find Movies/TV Shows</p>
-            <SearchBar />
-        </div>
-    </div>
-    )
+        return (   
+            <div className="App">
+                <Router>
+                    <NavBar />
+                    <Routes>
+                        <Route path="/home" element={<Home />} />
+                        <Route path="/search-result" element={<SearchResult />} />
+                        <Route path="/movies" element={<Movies />} />
+                    </Routes>
+                 </Router>
+            </div>    
+        )
 }
 
-export default App
+export default App;
