@@ -1,0 +1,167 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #212529;
+    width: 100%;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.App {
+    background-color: #212529;
+}
+
+.Home {
+    color: #ffffff;
+}
+
+.SearchResult {
+    color: #ffffff;
+}
+
+.searchHeader {
+    font-size:24px;
+    margin-left:3.4em;
+}
+
+/*
+.searchContent {
+    overflow:scroll;
+}
+*/
+
+.Movies {
+    color: #ffffff;
+    width:auto;
+}
+
+#hori {
+    display: flex;
+    flex-direction: row;
+}
+
+#mPicture {
+    margin-left: 12.5vw;
+    margin-top: 2vh;
+}
+
+#synopsis {
+    font-size:12px;
+    margin-left:6vw;
+    margin-top:1.1vh;
+}
+
+.listMovies{
+    color: #ffffff;
+    text-align:center;
+}
+
+#StarWars {
+    width:70px;
+    height:80px;
+}
+
+#Netflix {
+    width:65px;
+    height:43px;
+    border-radius:12px;
+    margin-left:1vw;
+}
+
+#streaming td {
+    width: 50%;
+    height: 100px;
+}
+
+#information {
+    margin-left:12.5vw;
+    margin-top:2vh;
+    font-size:12px;
+}
+
+.searchBtn {
+    width: 60px;
+    height: 50px;
+    border: 1px solid #00B4CC;
+    background: #00B4CC;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+#movies-search {
+    width: 40%;
+    height: 50px;
+    margin-top: 0.5em;
+    margin-left: 0.5em;
+    padding-left:0.5em;
+    border: 3px solid #00B4CC;
+    border-right: none;
+}
+#movies-search:focus {
+    color:#00B4CC;
+}
+#movies-search,
+#movies-search::-webkit-input-placeholder {
+    font-size: 24px;
+    font-family:Garamond;
+}
+
+#Title {
+    text-align: center;
+    font-family: Garamond;
+    font-size:36px;
+}
+
+#searchIcon {
+    color:white;
+}
+
+.search {
+    width:100%;
+    height:100%;
+    position:relative;
+    left:26%;
+}
+
+#filterTitle {
+    font-family:Garamond;
+    font-size:24px;
+    color:#ffffff;
+    position:relative;
+    left:27%;
+}
+
+#filterCat {
+    margin-left:15px;
+}
+
+.filters {
+    font-family: Garamond;
+    color: #ffffff;
+    position:relative;
+    left:27%;
+    margin-top:1em;
+}
+
+.ant-checkbox-group-item {
+    display:inline-block;
+    margin-right:8px;
+}
+
+
+.content {
+    margin-top:10vh;
+}
+
+#SearchResult {
+    font-family: Garamond;
+    font-size: 36px;
+}

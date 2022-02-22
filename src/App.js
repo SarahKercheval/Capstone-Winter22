@@ -4,6 +4,7 @@ import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/nav'
 import Container from 'react-bootstrap/Container'
 import 'bootstrap/dist/css/bootstrap.css';
+import './index.css';
 
 //fetching from server.py flask 
 
