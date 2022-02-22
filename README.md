@@ -13,3 +13,5 @@ In order to run the flask server for development, move to the flask-server folde
 'python -m flask run'
 
 Your flask server should now be running on http://127.0.0.1:5000/
+
+If you encounter the bug "No import module named flask", run the command 'pip3 install flask' inside of the venv
