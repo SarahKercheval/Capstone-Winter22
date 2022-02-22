@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e6d05ee70fb3440c13a117a8d21aac15a1a75fb87a0a13e8961d1eadf075d9d0
-size 478
+from flask import Flask
+#follow microsoft tutorial to get flask running
+#https://code.visualstudio.com/docs/python/tutorial-flask
+#python -m flask run
+
+app = Flask(__name__)
+
+# Members API route
+
+@app.route("/")
+def home():
+    return 'Home'
+
+@app.route("/Genre")
+def genre():
+    return 'Genre'
+    
+@app.route("/faq")
+def faq():
+    return 'faq'
+
+#puts the server into debug state, for development only
+if __name__ == "__main__":
+    app.run(debug=True)
