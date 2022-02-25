@@ -48,7 +48,7 @@ def getShows():
             title = text[text.find("<img alt=\""):text.find("\" class")]
             title = title[10:]
             
-            showElement = show(title = title, url = url, genres = [])
+            showElement = show(title = title, url = url, genres = ["show"])
             finalParamountShowList .append(showElement)
           
         getGenreUrlList(soup)
