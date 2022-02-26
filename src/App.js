@@ -6,6 +6,7 @@ import './index.css';
 import SearchResult from './pages/SearchResult';
 import Movies from './pages/Movies';
 import 'bootstrap/dist/css/bootstrap.css';
+import Genres from './pages/Genres';
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
                         <Route path="/home" element={<Home />} />
                         <Route path="/search-result" element={<SearchResult />} />
                         <Route path="/movies" element={<Movies />} />
+                        <Route path="/genres" element={<Genres />} />
                     </Routes>
                  </Router>
             </div>    

@@ -11,7 +11,7 @@ const Navigation = () => {
                     <Navbar.Brand href="/home">MoviesSearch</Navbar.Brand>
                     <Nav className="ms-auto">
                         <Nav.Link href='/home'>Home</Nav.Link>
-                        <Nav.Link href='/movies'>Genres</Nav.Link>
+                        <Nav.Link href='/genres'>Genres</Nav.Link>
                         <Nav.Link href="/search-result">FAQ</Nav.Link>
                     </Nav>
                 </Container>
