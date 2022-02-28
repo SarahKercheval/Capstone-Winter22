@@ -1,7 +1,7 @@
 import React, { Component, useState, UseEffect, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from './pages/Home';
-import NavBar from './components/NavBar';
+import NavBar from './components/NavBar/Navigation';
 import './index.css';
 import SearchResult from './pages/SearchResult';
 import Movies from './pages/Movies';
@@ -17,6 +17,7 @@ function App() {
             res => res.json()
         ).then(
             data => {
+                console.log('home fetch: ' + JSON.stringify(data))
                 setData(data)
                 console.log(data)
             }
@@ -32,6 +33,7 @@ function App() {
                         <Route path="/search-result" element={<SearchResult />} />
                         <Route path="/movies" element={<Movies />} />
                         <Route path="/genres" element={<Genres />} />
+                        <Route path="/" element={<Home />} />
                     </Routes>
                  </Router>
             </div>    
