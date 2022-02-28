@@ -66,6 +66,9 @@ def getRatingAndGenres():
                 if(genreHeader is not None):
                     genreList = genreHeader.find_all('a')
                     
+                    if (genreList == []):
+                        genreList = genreHeader.find_all('span')
+                    
                     for genre in genreList:
                         theShow.genres.append(genre.text)
                         
@@ -73,7 +76,7 @@ def getRatingAndGenres():
                 theShow.price = "13.99"
                     
         else:
-            print(r.status_code)
+            print(str(r.status_code) + " " + theShow.title)
         
         
         
