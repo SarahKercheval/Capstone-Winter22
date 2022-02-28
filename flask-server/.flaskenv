@@ -1,3 +1,3 @@
 #.flaskenv
-FLASK_APP=server.py
+export set FLASK_APP=server.py
 FLASK_ENV=development

@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "http://localhost:3000/static/css/main.7dd8c555.css",
-    "main.js": "http://localhost:3000/static/js/main.e07be0f6.js",
+    "main.js": "http://localhost:3000/static/js/main.41b77765.js",
     "static/js/787.a7075d95.chunk.js": "http://localhost:3000/static/js/787.a7075d95.chunk.js",
     "static/media/hulu.jpg": "http://localhost:3000/static/media/hulu.fe295f1655cf81ecee0f.jpg",
     "static/media/netflix.jpg": "http://localhost:3000/static/media/netflix.a3e052cd0e40b5e0dd49.jpg",
     "static/media/S3.jpg": "http://localhost:3000/static/media/S3.b6a3441b45de2e4e55f2.jpg",
     "index.html": "http://localhost:3000/index.html",
     "main.7dd8c555.css.map": "http://localhost:3000/static/css/main.7dd8c555.css.map",
-    "main.e07be0f6.js.map": "http://localhost:3000/static/js/main.e07be0f6.js.map",
+    "main.41b77765.js.map": "http://localhost:3000/static/js/main.41b77765.js.map",
     "787.a7075d95.chunk.js.map": "http://localhost:3000/static/js/787.a7075d95.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7dd8c555.css",
-    "static/js/main.e07be0f6.js"
+    "static/js/main.41b77765.js"
   ]
 }

@@ -13,7 +13,7 @@ function App() {
     const [data, setData] = useState([{}])
 
     useEffect(() => {
-        fetch("/home").then(
+        fetch("http://127.0.0.1:5000/home").then(
             res => res.json()
         ).then(
             data => {
@@ -21,7 +21,7 @@ function App() {
                 console.log(data)
             }
         )
-    }, [])
+    }, [data])
 
         return (   
             <div className="App">
