@@ -16,7 +16,7 @@ const Home = () => {
             <div className="Home">
                 <div className="content">
                     <p id="Title">Find Movies/TV Shows</p>
-                    <SearchBar />
+                    {/* <SearchBar /> */}
                 </div>
             </div>
         )
