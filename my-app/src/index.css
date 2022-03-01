@@ -1,3 +1,5 @@
+
+   
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
@@ -104,6 +106,27 @@ code {
 
 #searchGenres {
     margin-top:5vh;
+}
+
+.faq {
+    position: relative;
+    left: 20%;
+    color: #ffffff;
+}
+
+.Collapsible {
+    background-color: #00B4CC;
+    text-align:center;
+    width:60%;
+}
+
+.Collapsible__contentOuter {
+    background-color: #ffffff;
+    color:#000000;
+}
+
+.Collapsible__contentInner {
+    border-top-color:#ffffff;
 }
 
 .searchBtn {
