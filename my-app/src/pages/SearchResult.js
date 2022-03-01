@@ -27,12 +27,12 @@ const SearchResult = (props) => {
                         <MDBTableBody>
                             <tr>
                                 {/* <th scope='row'><img src={ starWars } id="StarWars"/></th> */}
-                                <td>Name: {title}<br />Genre: {genre}<br/>Price: {price}</td>
+                                <td>Name: {title}<br />Genre: {genre}<br/>Price: {price}<br />Genre: {genre}</td>
                                 <td><img src={Netflix} id="Netflix" /><img src={Hulu} id="Netflix" /></td>
                             </tr>
                             <tr>
                                 {/* <th scope='row'><img src={starWars} id="StarWars" /></th> */}
-                                <td>Name: {title}<br />Genre: {genre}<br />Price: {price}</td>
+                                <td>Name: {title}<br />Genre: {genre}<br />Price: {price}<br />Genre: {genre}</td>
                                 <td><img src={Netflix} id="Netflix" /><img src={Hulu} id="Netflix" /></td>
                             </tr>
                         </MDBTableBody>
