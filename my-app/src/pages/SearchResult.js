@@ -5,8 +5,9 @@ import starWars from '../images/S3.jpg';
 import Netflix from '../images/netflix.jpg';
 import Hulu from '../images/hulu.jpg';
 
+
 const SearchResult = (props) => {
-    const { title, foundTitle } = props
+    const { title, genre, price, foundTitle } = props
 
     return (
         <div className="SearchResult">
@@ -25,13 +26,13 @@ const SearchResult = (props) => {
                         </MDBTableHead>
                         <MDBTableBody>
                             <tr>
-                                <th scope='row'><img src={ starWars } id="StarWars"/></th>
-                                <td>Name: StarWars:Revenge of The Sith<br />Genre:Action<br/>Synopsis:</td>
+                                {/* <th scope='row'><img src={ starWars } id="StarWars"/></th> */}
+                                <td>Name: {title}<br />Genre: {genre}<br/>Price: {price}</td>
                                 <td><img src={Netflix} id="Netflix" /><img src={Hulu} id="Netflix" /></td>
                             </tr>
                             <tr>
-                                <th scope='row'><img src={starWars} id="StarWars" /></th>
-                                <td>Name: StarWars:Revenge of The Sith<br />Genre:Action<br />Synopsis:</td>
+                                {/* <th scope='row'><img src={starWars} id="StarWars" /></th> */}
+                                <td>Name: {title}<br />Genre: {genre}<br />Price: {price}</td>
                                 <td><img src={Netflix} id="Netflix" /><img src={Hulu} id="Netflix" /></td>
                             </tr>
                         </MDBTableBody>

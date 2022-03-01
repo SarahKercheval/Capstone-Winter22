@@ -18,7 +18,7 @@ const SearchBar = () => {
 
     const onSubmitClick = (e) => {
         console.log('about to request movie: ' + movieTitle)
-        fetch('http://localhost:5000/search-result/' + movieTitle, {
+        fetch('http://127.0.0.1:5000/search-result/' + movieTitle, {
             "method": "POST",
             "headers": {
                 "Access-Control-Allow-Origin": true
@@ -76,7 +76,7 @@ const SearchBar = () => {
             </div>
             { !!searchResult.name &&
                 <div>
-                    <SearchResult title={searchResult.name} foundTitle={"link" in searchResult} />
+                    <SearchResult title={searchResult.name} genre={searchResult.genre} price={searchResult.price} foundTitle={"link" in searchResult} />
                 </div>
             }
         </div>

@@ -30,6 +30,7 @@ function App() {
                     <NavBar />
                     <Routes>
                         <Route path="/home" element={<Home />} />
+                        <Route path="/Capstone-Winter22" element={<Home />} />
                         <Route path="/search-result" element={<SearchResult />} />
                         <Route path="/movies" element={<Movies />} />
                         <Route path="/genres" element={<Genres />} />
