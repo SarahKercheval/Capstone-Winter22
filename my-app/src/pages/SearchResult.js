@@ -7,7 +7,7 @@ import Hulu from '../images/hulu.jpg';
 
 
 const SearchResult = (props) => {
-    const { title, genre, price, foundTitle } = props
+    const { title, genre, price, rating, foundTitle } = props
 
     return (
         <div className="SearchResult">

@@ -76,7 +76,12 @@ const SearchBar = () => {
             </div>
             { !!searchResult.name &&
                 <div>
-                    <SearchResult title={searchResult.name} genre={searchResult.genre} price={searchResult.price} foundTitle={"link" in searchResult} />
+                    <SearchResult 
+                        title={searchResult.name} 
+                        genre={searchResult.genre} 
+                        price={searchResult.price} 
+                        rating={searchResult.rating}
+                        foundTitle={"link" in searchResult} />
                 </div>
             }
         </div>
