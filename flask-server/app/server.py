@@ -46,6 +46,10 @@ def genres():
 def faq():
     return 'faq'
 
+@app.route('/search-result')
+def search(searchParam):
+    return 'search'
+
 
 #puts the server into debug state, for development only
 if __name__ == "__main__":

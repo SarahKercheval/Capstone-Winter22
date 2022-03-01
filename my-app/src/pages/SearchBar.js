@@ -10,22 +10,32 @@ const options1 = ['Any', 'Netflix', 'Hulu', 'Amazon Prime'];
 const options2 = ['Free', '< $2.99', '< $5.99h', 'Any amount'];
 const options3 = ['English', 'Spanish', 'Chinese', 'Japanese'];
 const options4 = ['Yes', 'No'];
-function SearchBar(){
-// const SearchBar = () => 
-    const [values, setValues] = useState({
-        show_title: ''
-    });
-    const set = name => {
-        return ({ target: { value } }) => {
-          setValues(oldValues => ({ show_title: value }));
-        }
-    };
+
+const SearchBar = () => {
+    const [movieTitle, setMovieTitle] = useState('')
     return(
         <div className="wrap">
             <div className="search">
-                <form action="/" method="get">
-                    <input type="text" id="movies-search" placeholder="Search for TV or Movies" name="s" />
-                    <button type="submit" className="searchBtn"><FaSearch id="searchIcon" /></button>
+                <form action="/" method="get"
+                    onSubmit={(event) => {
+                        event.preventDefault()
+                    }}>
+                    <input type="text" id="movies-search" placeholder="Search for TV or Movies" name="s"
+                        onChange={(event) => {
+                            setMovieTitle(event.target.value)
+                        }}
+                        />
+                    <button type="submit" className="searchBtn"><FaSearch id="searchIcon"
+                        onClick={(e) => {
+                            console.log('about to request movie: ' + movieTitle)
+                            fetch('http://localhost:5000/search', {
+                                "method": "POST",
+                                "body": movieTitle,
+                                "headers": {
+                                    "Access-Control-Allow-Origin": true
+                                }
+                            })
+                        }} /></button>
                 </form>
             </div >
             <div className="filters">
