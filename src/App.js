@@ -7,6 +7,7 @@ import SearchResult from './pages/SearchResult';
 import Movies from './pages/Movies';
 import 'bootstrap/dist/css/bootstrap.css';
 import Genres from './pages/Genres';
+import Faq from './pages/faq';
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
                         <Route path="/search-result" element={<SearchResult />} />
                         <Route path="/movies" element={<Movies />} />
                         <Route path="/genres" element={<Genres />} />
+                        <Route path="/faq" element={<Faq />} />
                     </Routes>
                  </Router>
             </div>    

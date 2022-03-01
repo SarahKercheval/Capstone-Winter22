@@ -106,6 +106,27 @@ code {
     margin-top:5vh;
 }
 
+.faq {
+    position: relative;
+    left: 20%;
+    color: #ffffff;
+}
+
+.Collapsible {
+    background-color: #00B4CC;
+    text-align:center;
+    width:60%;
+}
+
+.Collapsible__contentOuter {
+    background-color: #ffffff;
+    color:#000000;
+}
+
+.Collapsible__contentInner {
+    border-top-color:#ffffff;
+}
+
 .searchBtn {
     width: 60px;
     height: 50px;
