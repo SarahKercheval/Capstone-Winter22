@@ -5,12 +5,6 @@ import starWars from '../images/S3.jpg';
 import Netflix from '../images/netflix.jpg';
 import Hulu from '../images/hulu.jpg';
 
-/*
-const searchData = [
-    {picture:, name: "Star Wars Revenge of The Sith", }
-]
-*/
-
 const SearchResult = () => {
         return (
             <div className="SearchResult">

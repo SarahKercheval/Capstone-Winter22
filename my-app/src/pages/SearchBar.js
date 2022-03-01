@@ -16,11 +16,17 @@ const SearchBar = () => {
     return(
         <div className="wrap">
             <div className="search">
-                <form action="/" method="get"
+                <form 
+                    action="/" 
+                    method="get"
                     onSubmit={(event) => {
                         event.preventDefault()
                     }}>
-                    <input type="text" id="movies-search" placeholder="Search for TV or Movies" name="s"
+                    <input 
+                        type="text" 
+                        id="movies-search" 
+                        placeholder="Search for TV or Movies" 
+                        name="s"
                         onChange={(event) => {
                             setMovieTitle(event.target.value)
                         }}

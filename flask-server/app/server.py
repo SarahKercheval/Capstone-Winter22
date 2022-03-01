@@ -1,5 +1,5 @@
 import flask
-from flask import Flask, send_from_directory
+from flask import Flask, send_from_directory, request
 from flask_cors import CORS, cross_origin
 import os
 
@@ -9,7 +9,9 @@ CORS(app)
 movie_file = '../../python-back-end/shows/HuluShows.txt'
 NAME = 0
 PRICE = 1
-URL = 2
+LINK = 2
+RATING = 3
+GENRE = 4
 
 titles = {}
 with open(movie_file) as f:
@@ -19,7 +21,9 @@ with open(movie_file) as f:
         movie = {
            'name': data[NAME],
            'price': data[PRICE],
-           'url': data[URL],
+           'link': data[LINK],
+           'rating': data[RATING],
+           'genre': data[GENRE]
         }
         titles[movie['name']] = movie
 
@@ -33,22 +37,10 @@ def serve(path):
     else:
         return send_from_directory(app.static_folder, 'index.html')
 
-
-@app.route('/home')
-def home():
-    return 'home'
-
-@app.route('/genres')
-def genres():
-    return 'genres'
-
-@app.route('/faq')
-def faq():
-    return 'faq'
-
-@app.route('/search-result')
+@app.route('/search-result/<movieTitle>')
 def search(searchParam):
-    return 'search'
+
+    return titles[movie]
 
 
 #puts the server into debug state, for development only
