@@ -1,6 +1,7 @@
 import React, { Component, useState } from 'react'
 import { FaSearch } from 'react-icons/fa'
 import { Checkbox, Row, Col } from 'antd'
+import SearchResult from './SearchResult';
 
 function onChange(checkedValues) {
     console.log('checked = ', checkedValues);
@@ -13,6 +14,27 @@ const options4 = ['Yes', 'No'];
 
 const SearchBar = () => {
     const [movieTitle, setMovieTitle] = useState('')
+    const [searchResult, setSearchResult] = useState({"name": ""})
+
+    const onSubmitClick = (e) => {
+        console.log('about to request movie: ' + movieTitle)
+        fetch('http://localhost:5000/search-result/' + movieTitle, {
+            "method": "POST",
+            "headers": {
+                "Access-Control-Allow-Origin": true
+            }
+        }).then(response => {
+            if (response.ok) {
+                response.json().then(body => {
+                    console.log('fetch result: ' + JSON.stringify(body))
+                    setSearchResult(body)
+                })
+            } else {
+                setSearchResult({"name": movieTitle})
+            }
+        })
+    }
+
     return(
         <div className="wrap">
             <div className="search">
@@ -32,16 +54,7 @@ const SearchBar = () => {
                         }}
                         />
                     <button type="submit" className="searchBtn"><FaSearch id="searchIcon"
-                        onClick={(e) => {
-                            console.log('about to request movie: ' + movieTitle)
-                            fetch('http://localhost:5000/search', {
-                                "method": "POST",
-                                "body": movieTitle,
-                                "headers": {
-                                    "Access-Control-Allow-Origin": true
-                                }
-                            })
-                        }} /></button>
+                        onClick={onSubmitClick} /></button>
                 </form>
             </div >
             <div className="filters">
@@ -61,6 +74,11 @@ const SearchBar = () => {
                     <Checkbox.Group options={options4} onChange={onChange} />
                 </Checkbox.Group>
             </div>
+            { !!searchResult.name &&
+                <div>
+                    <SearchResult title={searchResult.name} foundTitle={"link" in searchResult} />
+                </div>
+            }
         </div>
     );
 }

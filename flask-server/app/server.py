@@ -37,10 +37,12 @@ def serve(path):
     else:
         return send_from_directory(app.static_folder, 'index.html')
 
-@app.route('/search-result/<movieTitle>')
-def search(searchParam):
-
-    return titles[movie]
+@app.route('/search-result/<movieTitle>', methods=['GET', 'POST'])
+def search(movieTitle):
+    if movieTitle in titles:
+        return titles[movieTitle]
+    else:
+        flask.abort(404)
 
 
 #puts the server into debug state, for development only

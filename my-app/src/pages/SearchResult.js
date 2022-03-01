@@ -5,12 +5,15 @@ import starWars from '../images/S3.jpg';
 import Netflix from '../images/netflix.jpg';
 import Hulu from '../images/hulu.jpg';
 
-const SearchResult = () => {
-        return (
-            <div className="SearchResult">
-                <div className="searchHeader">
-                    <p id="searchResult">Search Results for "...."</p>
-                </div>
+const SearchResult = (props) => {
+    const { title, foundTitle } = props
+
+    return (
+        <div className="SearchResult">
+            <div className="searchHeader">
+                <p id="searchResult">Search Results for "{title}"</p>
+            </div>
+            { foundTitle &&
                 <div className="searchContent">
                     <MDBTable className='listMovies' borderless>
                         <MDBTableHead>
@@ -34,8 +37,14 @@ const SearchResult = () => {
                         </MDBTableBody>
                     </MDBTable>
                 </div>
-            </div>
-        )
+            }
+            { !foundTitle &&
+                <div className='listMovies'>
+                    Nothing found
+                </div>
+            }
+        </div>
+    )
 }
 
 export default SearchResult
