@@ -5,18 +5,16 @@ import starWars from '../images/S3.jpg';
 import Netflix from '../images/netflix.jpg';
 import Hulu from '../images/hulu.jpg';
 
-/*
-const searchData = [
-    {picture:, name: "Star Wars Revenge of The Sith", }
-]
-*/
 
-const SearchResult = () => {
-        return (
-            <div className="SearchResult">
-                <div className="searchHeader">
-                    <p id="searchResult">Search Results for "...."</p>
-                </div>
+const SearchResult = (props) => {
+    const { title, genre, price, rating, foundTitle } = props
+
+    return (
+        <div className="SearchResult">
+            <div className="searchHeader">
+                <p id="searchResult">Search Results for "{title}"</p>
+            </div>
+            { foundTitle &&
                 <div className="searchContent">
                     <MDBTable className='listMovies' borderless>
                         <MDBTableHead>
@@ -28,20 +26,26 @@ const SearchResult = () => {
                         </MDBTableHead>
                         <MDBTableBody>
                             <tr>
-                                <th scope='row'><img src={ starWars } id="StarWars"/></th>
-                                <td>Name: StarWars:Revenge of The Sith<br />Genre:Action<br/>Synopsis:</td>
+                                {/* <th scope='row'><img src={ starWars } id="StarWars"/></th> */}
+                                <td>Name: {title}<br />Genre: {genre}<br/>Price: {price}<br />Genre: {genre}</td>
                                 <td><img src={Netflix} id="Netflix" /><img src={Hulu} id="Netflix" /></td>
                             </tr>
                             <tr>
-                                <th scope='row'><img src={starWars} id="StarWars" /></th>
-                                <td>Name: StarWars:Revenge of The Sith<br />Genre:Action<br />Synopsis:</td>
+                                {/* <th scope='row'><img src={starWars} id="StarWars" /></th> */}
+                                <td>Name: {title}<br />Genre: {genre}<br />Price: {price}<br />Genre: {genre}</td>
                                 <td><img src={Netflix} id="Netflix" /><img src={Hulu} id="Netflix" /></td>
                             </tr>
                         </MDBTableBody>
                     </MDBTable>
                 </div>
-            </div>
-        )
+            }
+            { !foundTitle &&
+                <div className='listMovies'>
+                    Nothing found
+                </div>
+            }
+        </div>
+    )
 }
 
 export default SearchResult

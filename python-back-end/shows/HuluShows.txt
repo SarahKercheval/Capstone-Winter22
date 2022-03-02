@@ -1,4 +1,4 @@
-.hack//Roots { 6.99 { https://www.hulu.com/series/hackroots-8f66b61f-9f64-4ee4-84af-aaf16b40b3bd { TV14 { show { Fantasy { Action { Adventure { Anime
+Roots { 6.99 { https://www.hulu.com/series/hackroots-8f66b61f-9f64-4ee4-84af-aaf16b40b3bd { TV14 { show { Fantasy { Action { Adventure { Anime
 .hack//SIGN { 6.99 { https://www.hulu.com/series/hacksign-7115efe3-23b9-4688-954d-88384cab48ba { TVY7 { show { Drama { Fantasy { Anime
 10 Things I Hate About You { 6.99 { https://www.hulu.com/series/10-things-i-hate-about-you-9d51b39d-ef94-475f-8a07-d61ee33f18d4 { TV14 { show { Comedy { Drama { Romance { Teen
 100 Foot Wave { 6.99 { https://www.hulu.com/series/100-foot-wave-6eb6c632-ad3a-43d4-9831-6e917b8e7226 { TV14 { show { Sports { Surfing { Documentaries

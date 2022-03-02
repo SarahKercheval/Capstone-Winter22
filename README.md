@@ -1,6 +1,8 @@
 # Capstone-Winter22
 Capstone project for CS481 Winter 2022
 
+Project is a webpage to search streaming websites for specific movies or tv shows. 
+
 Need to install pip and selenium and download chromedriver
 
 make "Webdrivers" folder on C drive and place chromedriver in the folder
