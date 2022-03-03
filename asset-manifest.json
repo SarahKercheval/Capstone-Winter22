@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/Capstone-Winter22/static/css/main.7dd8c555.css",
-    "main.js": "/Capstone-Winter22/static/js/main.40744646.js",
+    "main.css": "/Capstone-Winter22/static/css/main.0f192639.css",
+    "main.js": "/Capstone-Winter22/static/js/main.02556679.js",
     "static/js/787.a7075d95.chunk.js": "/Capstone-Winter22/static/js/787.a7075d95.chunk.js",
     "static/media/hulu.jpg": "/Capstone-Winter22/static/media/hulu.fe295f1655cf81ecee0f.jpg",
     "static/media/netflix.jpg": "/Capstone-Winter22/static/media/netflix.a3e052cd0e40b5e0dd49.jpg",
     "static/media/S3.jpg": "/Capstone-Winter22/static/media/S3.b6a3441b45de2e4e55f2.jpg",
     "index.html": "/Capstone-Winter22/index.html",
-    "main.7dd8c555.css.map": "/Capstone-Winter22/static/css/main.7dd8c555.css.map",
-    "main.40744646.js.map": "/Capstone-Winter22/static/js/main.40744646.js.map",
+    "main.0f192639.css.map": "/Capstone-Winter22/static/css/main.0f192639.css.map",
+    "main.02556679.js.map": "/Capstone-Winter22/static/js/main.02556679.js.map",
     "787.a7075d95.chunk.js.map": "/Capstone-Winter22/static/js/787.a7075d95.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7dd8c555.css",
-    "static/js/main.40744646.js"
+    "static/css/main.0f192639.css",
+    "static/js/main.02556679.js"
   ]
 }
