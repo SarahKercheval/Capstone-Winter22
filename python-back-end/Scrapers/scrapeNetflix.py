@@ -1,53 +1,142 @@
-from asyncio.windows_events import CONNECT_PIPE_MAX_DELAY
-from pyparsing import nums
-from selenium import webdriver
-from selenium.webdriver import Chrome
-from selenium.webdriver.chrome.options import Options
-from selenium.common.exceptions import NoSuchElementException
-# from bs4 import BeautifulSoup
-from selenium.webdriver.common.by import By
-
+import requests
+from typing import List
+from dataclasses import dataclass
+from bs4 import BeautifulSoup
 import time
+import os
+
+@dataclass
+class show:
+    genres: List[str]
+    title: str = "NULL"
+    price: str = "9.99"
+    url: str = "NULL"
+    ageRating: str = "NULL"
 
 
-options = webdriver.ChromeOptions()
-options.add_experimental_option('excludeSwitches', ['enable-logging'])
+headers = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36'}
 
-DRIVER_PATH = "C:\\Webdrivers\\chromedriver"
-browser = webdriver.Chrome(executable_path=DRIVER_PATH, options=options)
+r = requests.get("http://ogres-crypt.com/public/NetFlix-Streaming-Genres2.html", headers = headers)
 
-allNetflixShowList = []
-file = open('NetflixTitles.txt', 'w', encoding="utf-8")
+netflixShows = []
+netflixShowsTextList = []
+showInList = False
+ratingText = "NULL"
+counter = 0
+counter2 = 0
 
-for z in range(5): # max 244
-    browser.get('http://ogres-crypt.com/public/NetFlix-Streaming-Genres2.html')
-    genreLink = browser.find_element(By.XPATH, '/html/body/table[1]/tbody/tr[' + str(z+1) + ']/td/a')
-    genreLink.click()
-    time.sleep(1)
-    for x in range(10): # max 15ish
-        for y in range(10): # max 75ish
-            try:
-                title = browser.find_element(By.XPATH, '//*[@id="appMountPoint"]/div/div[2]/main/section[' + str(x+2) + ']/div/ul/li[' + str(y+1) + ']/a/span[2]')
-                numID = browser.find_element(By.XPATH, '//*[@id="appMountPoint"]/div/div[2]/main/section[' + str(x+2) + ']/div/ul/li[' + str(y+1) + ']/a')
-                url = numID.get_attribute('href')
-                # lst = url.split('/')
-                allNetflixShowList.append(title.text + " ||| " + url)
-            except NoSuchElementException:
-                pass
-
+if(r.status_code == 200):
+    soup = BeautifulSoup( r.content, 'lxml')
+    genreInfo = soup.find_all('a')
     
-allNetflixShowList.sort()
-# print(allNetflixShowList)
+    for genre in genreInfo:
+        
+        counter2 = counter2 + 1
+        
+        time.sleep(0.1)
+        
+        genreName = genre.text
+        genreName = genreName[:genreName.find("(") -1]
+        
+        genreUrl = genre.get('href')
+    
+        r2 = requests.get(genreUrl , headers = headers)
+        
+        if(r2.status_code == 200):
+            
+            soup2 = BeautifulSoup( r2.content, 'lxml')
+            shows = soup2.find_all('a', {"class": "nm-collections-title nm-collections-link"})
+            
+            
+            for theShow in shows:
+                
+                counter = counter +1
+                
+                showTitle = theShow.text
+                showUrl = theShow.get('href')
+                
+                for element in netflixShows:
+                    if(element.url == showUrl):
+                        element.genres.append(genreName)
+                        showInList = True
+                if(not showInList):
+                    time.sleep(0.1)
+                    r3 = requests.get(showUrl, headers = headers)
+                    
+                    if (r3.status_code == 200):
+                        soup3 = BeautifulSoup( r3.content, 'lxml')
+                        rating = soup3.find("span", {"class": "maturity-number"})
+                        
+                        if (rating is not None):
+                            ratingText = rating.text
+                    else:
+                        print("1 " + r3.status_code)
+                    newShow = show(title = showTitle, url = showUrl, ageRating = ratingText, genres = [genreName])
+                    netflixShows.append(newShow)
+                    
+                showInList = False
+                ratingText = "NULL"
+      
 
-finalNetflixShowList = []
-for x in allNetflixShowList:
-    if x not in finalNetflixShowList:
-        finalNetflixShowList.append(x)
+    for e in netflixShows:
+        toWrite = e.title + " { " + e.price + " { " + e.url + " { " + e.ageRating
+    
+        for genre in e.genres:
+            toWrite += " { " + genre
+            
+        netflixShowsTextList.append(toWrite)
+        
+    netflixShowsTextList.sort()
+    
+    file = open('NetflixShows.txt', 'w', encoding="utf-8")
+    
+    for el in netflixShowsTextList:
+        file.write(el + "\n")
+    
+    file.close()
+    
+    
+    file = open("NetflixShows.txt", "r", encoding="utf-8")
+    
+    fileLines = []
+    
+    
+    for x in file:
+        line = x
+        elements = line.split("{")
+        
+        elements[-1] = elements[-1].replace("\n", " ")
+        
+        duplicatesRemoved = []
+    
+        a = set()
+        for e in elements:
+            if e not in a:
+                a.add(e)
+                duplicatesRemoved.append(e)
+        
+        
+        toAdd = ""
+        first = True
+        for el in duplicatesRemoved:
+            if first:
+                toAdd += el
+                first = False
+            else:
+                toAdd += "{" + el
+                
+        fileLines.append(toAdd)
+        
+        
+    file.close()
+    os.remove("newfile.txt")
 
-for x in finalNetflixShowList:
-    file.write(str(x) + "\n")
-
-# print(finalNetflixShowList)
-
-browser.close()
-
+    file2 = open("newfile.txt", "w", encoding="utf-8")
+    
+    for e in fileLines:
+        file2.write(e + "\n")
+        
+    file2.close()
+    
+else:
+    print(r.status_code)
