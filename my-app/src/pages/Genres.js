@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import SearchGenre from './SearchGenre'
+import SearchBar from './SearchBar'
 import 'bootstrap/dist/css/bootstrap.css';
 import action from '../images/action.png';
 import adventure from '../images/adventure.png';
@@ -23,7 +24,7 @@ const Genres = () => {
                         <img src={scifi} class='genrePic' />
                     </div>
                     <div id="searchGenres">
-                        <SearchGenre />
+                        <SearchBar />
                     </div>
                 </div>
             </div>

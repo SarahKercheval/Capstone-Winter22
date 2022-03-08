@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.css';
 import { MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
-import starWars from '../images/S3.jpg';
 import Netflix from '../images/netflix.jpg';
 import Hulu from '../images/hulu.jpg';
+import Paramount from '../images/paramount.png'
 
 
 const SearchResult = (props) => {
@@ -26,14 +26,20 @@ const SearchResult = (props) => {
                         </MDBTableHead>
                         <MDBTableBody>
                             <tr>
-                                {/* <th scope='row'><img src={ starWars } id="StarWars"/></th> */}
-                                <td>Name: {title}<br />Genre: {genre}<br/>Price: {price}<br />Genre: {genre}</td>
-                                <td><img src={Netflix} id="Netflix" /><img src={Hulu} id="Netflix" /></td>
+                                <td>Name: {title}<br />Genre: {genre}<br/>Price: {price}</td>
+                                <td>
+                                    <img src={Netflix} id="Netflix" alt="Netflix"/>
+                                    <img src={Hulu} id="Netflix" alt="Netflix"/>
+                                    <img src={Paramount} id="Netflix" alt="Paramount"/>
+                                </td>
                             </tr>
                             <tr>
-                                {/* <th scope='row'><img src={starWars} id="StarWars" /></th> */}
-                                <td>Name: {title}<br />Genre: {genre}<br />Price: {price}<br />Genre: {genre}</td>
-                                <td><img src={Netflix} id="Netflix" /><img src={Hulu} id="Netflix" /></td>
+                                <td>Name: {title}<br />Genre: {genre}<br />Price: {price}</td>
+                                <td>
+                                    <img src={Netflix} id="Netflix" alt="Netflix"/>
+                                    <img src={Hulu} id="Netflix" alt="Hulu"/>
+                                    <img src={Paramount} id="Netflix" alt="Paramount"/>
+                                </td>
                             </tr>
                         </MDBTableBody>
                     </MDBTable>

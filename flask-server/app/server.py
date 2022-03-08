@@ -53,7 +53,6 @@ def load_titles():
             for line in [l.strip() for l in file]:
                 data = [m.strip() for m in line.split('{')]
                 try:
-                    # Name and
                     movie = {
                         'name': data[DataFields.NAME],
                         'price': data[DataFields.PRICE],
