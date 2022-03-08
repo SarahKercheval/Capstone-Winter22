@@ -9,7 +9,7 @@ import os
 class show:
     genres: List[str]
     title: str = "NULL"
-    price: str = "9.99"
+    price: str = "NULL"
     url: str = "NULL"
     ageRating: str = "NULL"
 
