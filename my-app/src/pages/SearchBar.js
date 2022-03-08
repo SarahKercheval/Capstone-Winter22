@@ -8,7 +8,7 @@ function onChange(checkedValues) {
 }
 
 const options1 = ['Any', 'Netflix', 'Hulu', 'Amazon Prime'];
-const options2 = ['Free', '< $2.99', '< $5.99h', 'Any amount'];
+const options2 = ['Free', '< $2.99', '< $5.99', 'Any amount'];
 const options3 = ['English', 'Spanish', 'Chinese', 'Japanese'];
 const options4 = ['Yes', 'No'];
 

@@ -33,14 +33,14 @@ const SearchResult = (props) => {
                                     <img src={Paramount} id="Netflix" alt="Paramount"/>
                                 </td>
                             </tr>
-                            <tr>
+                            {/* <tr>
                                 <td>Name: {title}<br />Genre: {genre}<br />Price: {price}</td>
                                 <td>
                                     <img src={Netflix} id="Netflix" alt="Netflix"/>
                                     <img src={Hulu} id="Netflix" alt="Hulu"/>
                                     <img src={Paramount} id="Netflix" alt="Paramount"/>
                                 </td>
-                            </tr>
+                            </tr> */}
                         </MDBTableBody>
                     </MDBTable>
                 </div>
