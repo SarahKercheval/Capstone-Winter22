@@ -64,7 +64,8 @@ def load_titles():
                     print("received index error for data = ", data)
                     sys.exit(-1)
                 # TODO: need index?
-                out += movie
+                out[movie['name']] = movie
+                #out += movie
     return out
 
 
@@ -86,6 +87,8 @@ titles = load_titles()
 @app.route('/search-result/<movieTitle>', methods=['GET', 'POST'])
 def search(movieTitle):
     """Given a |movieTitle|, searches for it in the list of all movies."""
+    if movieTitle in titles:
+        return titles[movieTitle]
     # TODO: improve from O(N) algorithm.
     for title in titles:
         if movieTitle.lower() in title.name.lower():
