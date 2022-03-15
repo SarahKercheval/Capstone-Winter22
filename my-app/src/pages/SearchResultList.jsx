@@ -15,24 +15,26 @@ function SearchResultList(props) {
             }
     )
     console.log('filtered list: ' + JSON.stringify(filteredList))
-    return (<div>
-                <div className="searchHeader">
-                <p id="searchResult">Search Results for "{title}"</p>
-            </div>
-                {filteredList.map(result => {
-                 
-                    return(
-                        <SearchResult
-                            title={result.name.trim()} 
-                            genre={result.genre} 
-                            price={result.price} 
-                            rating={result.rating}
-                            foundTitle={"link" in result}
-                        /> 
-                    )
-                }
-                )}
-            </div>)
+    return (
+        <div>
+            <div className="searchHeader">
+            <p id="searchResult">Search Results for "{title}"</p>
+        </div>
+            {searchList.map(result => {
+                
+                return(
+                    <SearchResult
+                        title={result.name.trim()} 
+                        genre={result.genre} 
+                        price={result.price} 
+                        rating={result.rating}
+                        foundTitle={"link" in result}
+                    /> 
+                )
+            }
+            )}
+        </div>
+    )
 }
 
 export default SearchResultList

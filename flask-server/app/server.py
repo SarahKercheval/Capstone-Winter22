@@ -73,8 +73,6 @@ def load_titles():
                 except IndexError:
                     print("received index error for data = ", data)
                     sys.exit(-1)
-                # TODO: need index?
-                
                 out[movie['name'].strip().lower()] = movie
         count += 1
     return out

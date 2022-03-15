@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import SearchGenre from './SearchGenre'
 import SearchBar from './SearchBar'
 import 'bootstrap/dist/css/bootstrap.css';
 import action from '../images/action.png';
