@@ -121,11 +121,6 @@ def appendAgeRating():
 
 
 
-##next add age ratings
-#some shows are broken
-
-
-
 getShows()
 appendShowGenres()
 appendAgeRating()
