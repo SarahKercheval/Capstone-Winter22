@@ -2,22 +2,21 @@ import React, { Component, useState } from 'react'
 import { FaSearch } from 'react-icons/fa'
 import { Checkbox, Row, Col } from 'antd'
 import SearchResult from './SearchResult';
+import SearchResultList from './SearchResultList'
 
 function onChange(checkedValues) {
     console.log('checked = ', checkedValues);
 }
 
-const options1 = ['Any', 'Netflix', 'Hulu', 'Amazon Prime'];
+const options1 = ['Any', 'Netflix', 'Hulu', 'Paramount'];
 const options2 = ['Free', '< $2.99', '< $5.99', 'Any amount'];
-const options3 = ['English', 'Spanish', 'Chinese', 'Japanese'];
-const options4 = ['Yes', 'No'];
 
 const SearchBar = () => {
     const [movieTitle, setMovieTitle] = useState('')
-    const [searchResult, setSearchResult] = useState({"name": ""})
+    const [searchResult, setSearchResult] = useState([{"name": ""}])
 
     const onSubmitClick = (e) => {
-        console.log('about to request movie: ' + movieTitle)
+        console.log('about to request movie: ' + movieTitle.trim())
         fetch('http://127.0.0.1:5000/search-result/' + movieTitle, {
             "method": "POST",
             "headers": {
@@ -32,6 +31,10 @@ const SearchBar = () => {
             } else {
                 setSearchResult({"name": movieTitle})
             }
+            // setSearchResult({
+            //     ...searchResult,
+            //     "name": movieTitle
+            // })
         })
     }
 
@@ -66,24 +69,17 @@ const SearchBar = () => {
                     <br />
                     <label>Price:</label>
                     <Checkbox.Group options={options2} onChange={onChange} />
-                    <br />
-                    <label>Language:</label>
-                    <Checkbox.Group options={options3} onChange={onChange} />
-                    <br />
-                    <label>Subtitle:</label>
-                    <Checkbox.Group options={options4} onChange={onChange} />
                 </Checkbox.Group>
             </div>
-            { !!searchResult.name &&
-                <div>
-                    <SearchResult 
-                        title={searchResult.name} 
-                        genre={searchResult.genre} 
-                        price={searchResult.price} 
-                        rating={searchResult.rating}
-                        foundTitle={"link" in searchResult} />
+            { !!searchResult &&
+                <div id="SearchResultList">
+                    <SearchResultList
+                        searchList={searchResult}
+                        title={movieTitle.trim()}
+                    />
                 </div>
-            }
+            }   
+
         </div>
     );
 }

@@ -9,7 +9,7 @@ import os
 import pathlib
 from enum import IntEnum
 import sys
-
+import json
 import flask
 from flask import Flask, send_from_directory
 from flask_cors import CORS, cross_origin
@@ -64,8 +64,7 @@ def load_titles():
                     print("received index error for data = ", data)
                     sys.exit(-1)
                 # TODO: need index?
-                out[movie['name']] = movie
-                #out += movie
+                out[movie['name'].strip().lower()] = movie
     return out
 
 
@@ -87,13 +86,13 @@ titles = load_titles()
 @app.route('/search-result/<movieTitle>', methods=['GET', 'POST'])
 def search(movieTitle):
     """Given a |movieTitle|, searches for it in the list of all movies."""
-    if movieTitle in titles:
-        return titles[movieTitle]
-    # TODO: improve from O(N) algorithm.
-    for title in titles:
-        if movieTitle.lower() in title.name.lower():
-            return titles[movieTitle]
-    return flask.abort(404)
+    ret = []
+    requestTitle = movieTitle.lower().strip()
+    for title in titles.keys():
+        if requestTitle in title:
+            ret.append(titles[title])
+            # return titles[requestTitle]
+    return json.dumps(ret)
 
 
 # puts the server into debug state

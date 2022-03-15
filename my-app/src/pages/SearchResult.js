@@ -11,9 +11,6 @@ const SearchResult = (props) => {
 
     return (
         <div className="SearchResult">
-            <div className="searchHeader">
-                <p id="searchResult">Search Results for "{title}"</p>
-            </div>
             { foundTitle &&
                 <div className="searchContent">
                     <MDBTable className='listMovies' borderless>
@@ -29,18 +26,10 @@ const SearchResult = (props) => {
                                 <td>Name: {title}<br />Genre: {genre}<br/>Price: {price}</td>
                                 <td>
                                     <img src={Netflix} id="Netflix" alt="Netflix"/>
-                                    <img src={Hulu} id="Netflix" alt="Netflix"/>
-                                    <img src={Paramount} id="Netflix" alt="Paramount"/>
-                                </td>
-                            </tr>
-                            {/* <tr>
-                                <td>Name: {title}<br />Genre: {genre}<br />Price: {price}</td>
-                                <td>
-                                    <img src={Netflix} id="Netflix" alt="Netflix"/>
                                     <img src={Hulu} id="Netflix" alt="Hulu"/>
                                     <img src={Paramount} id="Netflix" alt="Paramount"/>
                                 </td>
-                            </tr> */}
+                            </tr>
                         </MDBTableBody>
                     </MDBTable>
                 </div>
