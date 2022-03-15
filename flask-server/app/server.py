@@ -21,7 +21,6 @@ CORS(app)
 
 SHOWS_FOLDER = pathlib.Path(__file__).absolute().parent.parent.parent.joinpath(
                                                     'python-back-end', 'shows')
-print(SHOWS_FOLDER)
 
 SHOW_FILENAMES = ['HuluShows.txt',
                   'NetflixShows.txt',
@@ -37,6 +36,7 @@ class DataFields(IntEnum):
     LINK = 2
     RATING = 3
     GENRE = 4
+    PROVIDER = 5
 
 
 def get_if(array, index):
@@ -48,10 +48,12 @@ def get_if(array, index):
 def load_titles():
     """Loads all movie titles from the list of all shows."""
     out = {}
+    count = 0
     for file_name in SHOW_FILES:
         with open(file_name, encoding='utf-8') as file:
             for line in [l.strip() for l in file]:
                 data = [m.strip() for m in line.split('{')]
+                name = str(file_name).split('/')[-1]
                 try:
                     movie = {
                         'name': data[DataFields.NAME],
@@ -60,11 +62,21 @@ def load_titles():
                         'rating': get_if(data, DataFields.RATING),
                         'genre': get_if(data, DataFields.GENRE)
                     }
+                    if count == 0:
+                        movie['provider'] = 'Hulu'
+                    if count == 1:
+                        movie['provider'] = 'Netflix'
+                    else: #name == 'ParamountMovies.txt' or name == 'ParamountShows.txt':
+                        movie['provider'] = 'Paramount'
+                    movie[str(file_name)] = name
+                         
                 except IndexError:
                     print("received index error for data = ", data)
                     sys.exit(-1)
                 # TODO: need index?
+                
                 out[movie['name'].strip().lower()] = movie
+        count += 1
     return out
 
 

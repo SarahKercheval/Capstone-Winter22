@@ -14,6 +14,29 @@ const options2 = ['Free', '< $2.99', '< $5.99', 'Any amount'];
 const SearchBar = () => {
     const [movieTitle, setMovieTitle] = useState('')
     const [searchResult, setSearchResult] = useState([{"name": ""}])
+    const [providerFilter, setProviderFilter] = useState({
+        "Hulu": false,
+        "Netflix": false,
+        "Paramount": false,
+        "Any": true
+    })
+
+    const onProviderFilterChange = (e) => {
+        console.log("onProviderFilterChange")
+        console.log(e)
+        console.log(providerFilter)
+        let values={
+            "Hulu": false,
+            "Netflix": false,
+            "Paramount": false,
+            "Any": false
+        }
+        e.forEach(
+            value => values[value] = true
+        ) 
+        setProviderFilter(values)
+    }
+
 
     const onSubmitClick = (e) => {
         console.log('about to request movie: ' + movieTitle.trim())
@@ -31,12 +54,31 @@ const SearchBar = () => {
             } else {
                 setSearchResult({"name": movieTitle})
             }
-            // setSearchResult({
-            //     ...searchResult,
-            //     "name": movieTitle
-            // })
         })
     }
+    // const [streamingService, setStreamingService] = useState('')
+    // const [priceFilter, setPriceFilter] = useState('')
+    // const onChange = () => {
+    //     console.log('filter by streaming: ' + streamingService)
+    //     console.log('filter by price: ' + priceFilter)
+    //     fetch('http://127.0.0.1:5000/search-result/' + movieTitle, {
+    //         "method": "POST",
+    //         "headers": {
+    //             "Access-Control-Allow-Origin": true
+    //         }
+    //     }).then(response => {
+    //         if (response.ok) {
+    //             response.json().then(body => {
+    //                 console.log('fetch result: ' + JSON.stringify(body))
+    //                 setSearchResult(body)
+    //             })
+    //         } else {
+    //             setSearchResult({"name": movieTitle})
+    //             {/**TODO: get streaming service based on the file the movie is taken from? Or parse link */}
+    //             setPriceFilter({"price": priceFilter})
+    //         }
+    //     })
+    // }
 
     return(
         <div className="wrap">
@@ -65,7 +107,7 @@ const SearchBar = () => {
                 <br />
                 <Checkbox.Group onChange={onChange}>
                     <label>Streaming Services:</label>
-                    <Checkbox.Group options={options1} onChange={onChange} />
+                    <Checkbox.Group options={options1} onChange={onProviderFilterChange} />
                     <br />
                     <label>Price:</label>
                     <Checkbox.Group options={options2} onChange={onChange} />
@@ -76,6 +118,7 @@ const SearchBar = () => {
                     <SearchResultList
                         searchList={searchResult}
                         title={movieTitle.trim()}
+                        providerFilter={providerFilter}
                     />
                 </div>
             }   
