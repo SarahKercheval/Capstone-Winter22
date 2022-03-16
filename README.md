@@ -16,7 +16,7 @@ on windows: 'venv\Scripts\activate'
 (This tells the system that you want to use the server, after this point you should be working inside the flask virtual environment. Install modules and python things within the server!! Otherwise the install will likely happen globablly and the server will not necessarily be using the same python interpreter.)
 
 'export FLASK_APP=server.py' 
-on windows: 'set FLASK_APP=server.py'
+on windows powershell: '$env:FLASK_APP="server.py"'
 
 (This one tells the flask app which folder to use)
 
