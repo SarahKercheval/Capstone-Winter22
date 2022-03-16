@@ -5,6 +5,7 @@ Server Backend for flask project.
 @author: Sarah Kercheval
 """
 
+from audioop import cross
 import os
 import pathlib
 from enum import IntEnum
@@ -16,11 +17,14 @@ from flask_cors import CORS, cross_origin
 
 
 app = Flask(__name__, static_folder='./my-app/')
-CORS(app)
+# CORS(app)
+CORS(app, resources={r'/*': {'origins': '*'}}) 
+app.config['CORS_HEADERS'] = 'Access-Control-Allow-Origin' 
 
 
 SHOWS_FOLDER = pathlib.Path(__file__).absolute().parent.parent.parent.joinpath(
                                                     'python-back-end', 'shows')
+print(SHOWS_FOLDER)
 
 SHOW_FILENAMES = ['HuluShows.txt',
                   'NetflixShows.txt',
@@ -68,7 +72,7 @@ def load_titles():
                         movie['provider'] = 'Netflix'
                     else: #name == 'ParamountMovies.txt' or name == 'ParamountShows.txt':
                         movie['provider'] = 'Paramount'
-                    movie[str(file_name)] = name
+                    movie[name] = name
                          
                 except IndexError:
                     print("received index error for data = ", data)
@@ -94,6 +98,7 @@ titles = load_titles()
 
 
 @app.route('/search-result/<movieTitle>', methods=['GET', 'POST'])
+@cross_origin(origin='*',headers=['Content- Type']) 
 def search(movieTitle):
     """Given a |movieTitle|, searches for it in the list of all movies."""
     ret = []
