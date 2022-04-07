@@ -1,29 +1,34 @@
-# Capstone-Winter22
-Capstone project for CS481 Winter 2022
+# Find That Show
+Capstone project for CS481 Winter Quarter 2022
 
-Project is a webpage to search streaming websites for specific movies or tv shows. 
+The focus of the project is providing an efficient search of television shows and movies across a range of all current streaming services via web scraping.
 
-Need to install pip and selenium and download chromedriver
+More specifications and details can be found in the Find That Show Final Document pdf.
 
-make "Webdrivers" folder on C drive and place chromedriver in the folder
+Installation:
 
-"C:\Webdrivers\chromedriver"
+-Download source code zipped from the GitHub: SarahKercheval/Capstone-Winter22
+-Unzip the file
+-Install Node.js/npm (if not already installed)
+-Install python (if not already installed)
+-Ensure the latest versions of npm and python are installed, elsewise errors may appear.
+    There may be issues with installing npm if there is not enough disk space available.
+    The front-end may compile with errors if the react version is not updated.
+    
+**On Mac OS:**
+To begin running the server: Open a terminal and go into the main directory and run “pip3 install flask”, then “pip3 install flask-cors”. From here, run “cd flask-server/app” to go into the main flask server directory. Run the command “export FLASK_APP=server.py” to set your environment, then run “python3 -m flask run” to start the server.
 
-In order to run the flask server for development, move to the flask-server folder in terminal and run three commands: 
-'source venv/bin/activate' 
-on windows: 'venv\Scripts\activate' 
+To begin running the frontend: Open another terminal, go into the my-app directory and run “npm install”. If another application is running on localHost:3000 it will ask if you want to run it on a different port. Answer yes. After npm installs, run the command “npm run start”. This will open a tab on your browser on the localhost.
 
-(This tells the system that you want to use the server, after this point you should be working inside the flask virtual environment. Install modules and python things within the server!! Otherwise the install will likely happen globablly and the server will not necessarily be using the same python interpreter.)
+If you need to exit either the server or the react UI, “control-c” will exit out of them.
 
-'export FLASK_APP=server.py' 
-on windows powershell: '$env:FLASK_APP="server.py"'
+**On Windows OS:**
+To begin running the server: Open a powershell terminal and go into the main directory. Run “pip3 install flask” then “pip3 install flask-cors”. From here, run “cd flask-server/app” to go into the main flask server directory. Run the command “ $env:FLASK_APP=”server.py” ” to set your environment, then run “python -m flask run” to start the server. The server will start on 127.0.0.1:5000, in order to see the search results the URL will need to be 127.0.0.1:5000/search-result/movieTitle, where movieTitle is the searched title you want.
 
-(This one tells the flask app which folder to use)
+To begin running the frontend: Open a powershell terminal and go to the main directory. From here run “cd my-app” then run “npm install”. This installation will likely take a couple minutes. After npm has installed, run “cd my-app” which is the main react directory. Inside here run “npm run start”. This will start the development page on a web browser.
 
+If you need to exit either the server or the react UI, “control-c” will exit out of them.
 
-'python -m flask run'  (Run the flask app)
-
-Your flask server should now be running on http://127.0.0.1:5000/
-
-If you encounter the bug "No import module named flask", run the command 'pip3 install flask' inside of the venv
-If the bug "error: could not import server" occurs, ensure you are in the correct directory while running commands
+**Bugs**
+Depending on the environment and browser, CORS issues may prevent the front-end from displaying correctly.
+The filters are automatically set to paramount, this is an issue with the flask integration that is still unknown.
